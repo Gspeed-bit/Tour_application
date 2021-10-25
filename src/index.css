@@ -37,10 +37,8 @@ Variables
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-black: #222;
   --transition: all 0.3s linear;
-  --spacing: 0.1rem;
+  --spacing: 0.08rem;
   --radius: 0.25rem;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
   --fixed-width: 620px;
 }
@@ -73,6 +71,7 @@ h4 {
   text-transform: capitalize;
   line-height: 1.05;
   margin-bottom: 0.75rem;
+ 
 }
 h1 {
   font-size: 2rem;
@@ -106,14 +105,28 @@ section{
 
 .each-Tour{
   margin-bottom: 1rem;
-
-  background: #eee;
+  background: var( --clr-white);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
   box-shadow: 0 8px 8px -4px rgb(190, 193, 194);
 }
 
 .footer-tour{
   padding: 1.5rem;
+  
 }
+
+.title-tour{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bolder;
+}
+.title-price-tour{
+color: var(--clr-primary-5);
+background-color: var(--clr-primary-10);
+}
+
 
 .each-Tour > img{
   width: 100%;
@@ -121,4 +134,15 @@ section{
   object-fit:cover;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
+}
+.each-Tour .delete-btn{
+  background-color: transparent;
+  margin: 0 auto;
+  display: block;
+  width: 10rem;
+  text-transform:capitalize;
+  border: 1.34px solid red;
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--clr-red-dark);
 }
