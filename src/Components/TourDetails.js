@@ -22,8 +22,8 @@ function TourDetails({id, name, image, price, info, removeTour}) {
         </button>
         
         </p>
-        
-        <button onClick={()=> removeTour(id)} className="delete-btn"> not interested</button> 
+
+        <button onClick={()=> removeTour(id)} className="delete-btn"> not interested</button>
         </footer>
         </div>
     </article>

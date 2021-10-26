@@ -3,8 +3,7 @@ import './App.css';
 import React, {useState,useEffect} from "react"
 import Loading from "./Components/Loading"
 import Tours from "./Components/Tours"
-
-
+import ReactLoading from 'react-loading';
 const url ="https://course-api.com/react-tours-project"; //external API used
 
 
@@ -23,6 +22,7 @@ function App() {
   // fetching the data from API using asyn
 const TourAPIgetter = async()=>{
   setLoading(true)
+
 try{
   
   const response = await fetch(url);
@@ -40,22 +40,44 @@ console.log(err)
 
   }
 
+
 // component did mount was used here  
 useEffect(()=>{
+  setTimeout(() => {
   TourAPIgetter()
+},2000)
 },[])
   //conditional redrening
  if(loading)
 return (
   <main>
+     <div className="title">
     <Loading />
+   <ReactLoading type={"spin"} color={"hsl(209, 61%, 16%)"} height={'20%'} width={'20%'}/>
+    </div>
 </main>
 )
+if(tours.length === 0){
+  return (
+    <main>
+      <div className="title">
+      <h2> No Tours Left</h2>
+      <button onClick = {()=>TourAPIgetter()}  className="refs-btn">
+        Refresh
+      </button>
+      </div>
+    </main>
+  )
+}
 
 return (
   <main>
-     <Tours tours={tours} removeTour={removeTour}/> {/*   // tours is passed into the  <Tours /> so that it can be decontrusted in the Tours.js app */}
-    
+     <div className="title title-header">
+       <h2> ours tours</h2>
+       <div className="underLine"></div>
+       </div>
+      <Tours tours={tours} removeTour={removeTour}/> {/*   // tours is passed into the  <Tours /> so that it can be decontrusted in the Tours.js app */}
+   
 </main>
 
 )
