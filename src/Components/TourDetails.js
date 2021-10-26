@@ -1,11 +1,9 @@
 import React,{useState} from "react"
 
-function TourDetails({id, name, image, price, info}) {
-    const [readmore, setReadMore] = useState(false)
+function TourDetails({id, name, image, price, info, removeTour}) {
+  const [readmore, setReadMore] = useState(false)
 
-    const Readmebtn =()=>{
-        setReadMore(!readmore)
-    }
+  
 
    return(
     <article>
@@ -17,14 +15,15 @@ function TourDetails({id, name, image, price, info}) {
             <h4>{name}</h4>
             <h4 className="title-price-tour">{`$${price}`}</h4> 
         </div>
-        <p>
-        {readmore ? `${info}  ` : `${info.substring(0,200)} ... `}
-        <button onClick={Readmebtn} className="read-more-btn">
-            {readmore ? "show less ":  "read more"  }
+        <p> {readmore ? `${info}  ` : `${info.substring(0,200)} . . . `}  
+
+        <button onClick={()=>setReadMore(!readmore)} className="read-more-btn">
+            {readmore ? "Show less" : "Read more"}
         </button>
-            
-         </p>
-        <button className="delete-btn"> not interested</button>
+        
+        </p>
+        
+        <button onClick={()=> removeTour(id)} className="delete-btn"> not interested</button> 
         </footer>
         </div>
     </article>

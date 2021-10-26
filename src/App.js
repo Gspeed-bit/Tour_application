@@ -12,6 +12,14 @@ function App() {
  const [loading,setLoading] = useState(true)// for the Loading section 
  const [tours, setTours] = useState([]) // the data fetched will be passed in tours
 
+ // using .filter method to remove any tour the user is not interested in by id
+
+ const removeTour = (id) =>{
+   // we have to create a new variable because .filter does return a new array, the new array will be passed into the variable
+   const newList = tours.filter((item)=> item.id !== id)
+   setTours(newList)
+ }
+
   // fetching the data from API using asyn
 const TourAPIgetter = async()=>{
   setLoading(true)
@@ -43,9 +51,10 @@ return (
     <Loading />
 </main>
 )
+
 return (
   <main>
-     <Tours tours={tours}/> {/*   // tours is passed into the  <Tours /> so that it can be decontrusted in the Tours.js app */}
+     <Tours tours={tours} removeTour={removeTour}/> {/*   // tours is passed into the  <Tours /> so that it can be decontrusted in the Tours.js app */}
     
 </main>
 
