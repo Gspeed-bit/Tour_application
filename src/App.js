@@ -7,6 +7,7 @@ import ReactLoading from 'react-loading';
 const url ="https://course-api.com/react-tours-project"; //external API used
 
 
+
 function App() {
  const [loading,setLoading] = useState(true)// for the Loading section 
  const [tours, setTours] = useState([]) // the data fetched will be passed in tours
@@ -45,22 +46,26 @@ console.log(err)
 useEffect(()=>{
   setTimeout(() => {
   TourAPIgetter()
-},2000)
+},100)
 },[])
+
+
   //conditional redrening
  if(loading)
+
 return (
-  <main>
-     <div className="title">
+
+  <main  >
+     <div className=" title title-loading">
     <Loading />
-   <ReactLoading type={"spin"} color={"hsl(209, 61%, 16%)"} height={'20%'} width={'20%'}/>
+   <ReactLoading type={"spin"} color={"hsl(209, 61%, 16%)"} height={'5%'} width={'5%'}/>
     </div>
 </main>
 )
 if(tours.length === 0){
   return (
     <main>
-      <div className="title">
+      <div className="title title-loading">
       <h2> No Tours Left</h2>
       <button onClick = {()=>TourAPIgetter()}  className="refs-btn">
         Refresh
@@ -71,7 +76,7 @@ if(tours.length === 0){
 }
 
 return (
-  <main>
+  <main >
      <div className="title title-header">
        <h2> ours tours</h2>
        <div className="underLine"></div>
