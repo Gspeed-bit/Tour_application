@@ -44,9 +44,7 @@ console.log(err)
 
 // component did mount was used here  
 useEffect(()=>{
-  setTimeout(() => {
   TourAPIgetter()
-},100)
 },[])
 
 
