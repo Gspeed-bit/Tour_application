@@ -46,12 +46,7 @@ console.log(err)
 useEffect(()=>{
   setTimeout(() => {
   TourAPIgetter()
-},1000)
-},[])
-
-
-  //conditional redrening
- if(loading)
+},900)
 
 return (
 
