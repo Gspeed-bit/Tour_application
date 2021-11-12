@@ -46,7 +46,7 @@ console.log(err)
 useEffect(()=>{
   setTimeout(() => {
   TourAPIgetter()
-},100)
+},1000)
 },[])
 
 
