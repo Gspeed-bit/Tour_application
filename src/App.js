@@ -47,7 +47,8 @@ useEffect(()=>{
   setTimeout(() => {
   TourAPIgetter()
 },900)
-
+},[])
+if (loading) {
 return (
 
   <main  >
@@ -57,6 +58,7 @@ return (
     </div>
 </main>
 )
+}
 if(tours.length === 0){
   return (
     <main>
@@ -82,6 +84,6 @@ return (
 
 )
 
-
 }
-export default App;
+
+export default App
